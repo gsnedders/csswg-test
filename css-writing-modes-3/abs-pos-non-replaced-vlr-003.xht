@@ -15,9 +15,19 @@
   <meta name="assert" content="When 'direction' is 'ltr' and 'top', 'height' and 'bottom' are 'auto', then set 'top' to the static position, then the height is based on the content and then solve for 'bottom'." />
 
   <style type="text/css"><![CDATA[
+  div#underlay
+    {
+      background-color: red;
+      position: absolute;
+      z-index: -1;
+      width: 80px;
+      height: 80px;
+      top: 160px;
+      left: 80px;
+    }
+
   div#containing-block
     {
-      background: red url("support/bg-red-2col-3row-320x320.png");
       color: transparent;
       direction: ltr;
       font: 80px/1 Ahem;
@@ -109,7 +119,7 @@ And so computed bottom value must be 80px .
 
   <p><img src="support/pass-cdts-abs-pos-non-replaced.png" width="246" height="36" alt="Image download support must be enabled" /></p>
 
-  <div id="containing-block">1 2 34<span>X</span></div>
+  <div id="containing-block"><div id="underlay"></div>1 2 34<span>X</span></div>
 
  </body>
 </html>
